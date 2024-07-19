@@ -79,8 +79,17 @@ class LinkedList:
             count +=1 
             temp = temp.next
         return count
-     
     
+    def reverse(self):
+        prev= None
+        current = self.head
+        while( current != None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+            self.head = prev
+     
 def main():
         LList = LinkedList()
         LList.head = node(1)
@@ -88,18 +97,21 @@ def main():
         third = node(3)
         LList.head.next = second
         second.next = third
-        LList.push(5)
-        LList.insert_after(6,second)
-        LList.insert_last(7)
-        LList.push(9)
-        print(LList.search(9))
+        LList.push(1)
+        LList.insert_after(2,second)
+        LList.insert_last(5)
+        LList.push(1)
+        print(LList.search(5))
         if LList.searchRec(LList.head,9):
             print(True)
         else:
             print(False)
         print(f"The count of the linked list is {LList.getcount()}")
+        
         LList.print_list()
-    
+        print("\n")
+        LList.reverse()
+        LList.print_list()
 
 if __name__ =="__main__":
     main()
