@@ -52,6 +52,34 @@ class LinkedList:
             last = last.next
         last.next = new_node
         # Time complexity : O(n)
+
+    def search(self,x):
+        current = self.head
+        while current != None:
+            if(current.data == x):
+                return True
+            current = current.next
+        return False
+    #time complexity O(n)
+
+    def searchRec(self,li,x):
+        if(not li):
+            return False
+
+        if(li.data ==x):
+            return True
+
+        return self.searchRec(li.next, x)
+    
+    def getcount(self):
+        temp = self.head
+        count = 0
+
+        while(temp != None):
+            count +=1 
+            temp = temp.next
+        return count
+     
     
 def main():
         LList = LinkedList()
@@ -63,6 +91,13 @@ def main():
         LList.push(5)
         LList.insert_after(6,second)
         LList.insert_last(7)
+        LList.push(9)
+        print(LList.search(9))
+        if LList.searchRec(LList.head,9):
+            print(True)
+        else:
+            print(False)
+        print(f"The count of the linked list is {LList.getcount()}")
         LList.print_list()
     
 
