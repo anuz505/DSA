@@ -1,21 +1,19 @@
 def binary_search(Arr,low,high,x):
-    while low<=high:
-        mid = low + (high - low) //2
 
-        #now we check if the value of mid is equal to x
+    if(low<=high):
+        mid = low + (high - low) // 2
+
         if(Arr[mid] == x):
             return mid
         
-        # if x is greater than mid value 
-        elif(x >Arr[mid]):
-            low = mid + 1
+        elif(x < Arr[mid]):
+            return binary_search(Arr,low,mid - 1,x)
         
-        # if x is lower than mid value
         else:
-            high = mid - 1
-
+            return binary_search(Arr,mid + 1, high , x)
+            
     return -1
-    
+
 if __name__ == "__main__":
     Arr = [1,2,3,4,5,6,7,8,9,10]
     x = 3
@@ -26,3 +24,5 @@ if __name__ == "__main__":
         print(f"The element {Arr[result]} is in index {result}")
     else:
         print("The array does not contain the element")
+        
+        
