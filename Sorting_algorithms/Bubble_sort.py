@@ -1,3 +1,6 @@
+# Complexity Analysis of Bubble Sort:
+# Time Complexity: O(N2)
+# Auxiliary Space: O(1)
 def bubblesort(Arr):
     n = len(Arr)
 
@@ -19,3 +22,4 @@ if __name__ == "__main__":
 
     for i in range(len(Arr)):
         print("%d" % Arr[i], end=" ")
+
