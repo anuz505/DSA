@@ -11,3 +11,7 @@ class Solution:
                 if i > num:
                     num = i
         return num
+    
+if __name__ == '__main__':
+    s = Solution()
+    print(s.findClosestNumber([1,-1,3,4,-2]))
