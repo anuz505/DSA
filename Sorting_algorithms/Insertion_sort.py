@@ -1,0 +1,13 @@
+def insertionsort(arr:list):
+    n = len(arr)
+    for i in range(n):
+        for j in range(i, 0 ,-1):
+            if arr[j-1] > arr[j]:
+                arr[j-1], arr[j] = arr[j], arr[j-1]
+            else : break
+
+
+
+Arr = [12,4,6,2]
+insertionsort(Arr)
+print(Arr)
