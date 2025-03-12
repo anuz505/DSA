@@ -27,3 +27,4 @@ def merge(left:list,right:list) -> list:
 Arr = [12, 4, 6, 2]
 Arr = merge_sort(Arr)
 print(Arr)
+
