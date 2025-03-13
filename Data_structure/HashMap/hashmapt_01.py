@@ -9,6 +9,7 @@ class Solution:
             sorted_s = tuple(sorted(s))
             anagram_map[sorted_s].append(s)
 
+        print(anagram_map)
         for value in anagram_map.values():
             result.append(value)
             
