@@ -2,39 +2,35 @@ from typing import List
 class Solution:
 
 	def threeSum(self, nums: List[int]) -> List[List[int]]:
-
-		h = {}
-
+		nums.sort()
+		answer = []
 		n = len(nums)
 
-		s = set()
-
-	
-
-		for i, num in enumerate(nums):
-
-			h[num] = i
-
-	
-
 		for i in range(n):
+			if nums[i] > 0:
+				break
 
-			for j in range(i + 1, n):
+			elif i > 0 and nums[i] == nums[i - 1]:
+				continue
 
-				desired = -nums[i] - nums[j]
+			j,k = i+1,n-1
 
-				if desired in h and h[desired] != i and h[desired] != j:
+			while j<k:
+				sum = nums[i] + nums[j] + nums[k]
+				if sum == 0:
+					answer.append([nums[i],nums[j],nums[k]])
+					j+=1
+					k-=1
 
-					s.add(tuple(sorted([nums[i], nums[j], desired])))
+					while j < k and nums[j] == nums[j-1]:
+						j +=1
 
-	
+					while j<k and nums[k] == nums[k+1]:
+						k -=1
+				elif sum < 0:
+					j +=1
+				else:
+					k-=1
 
-		return s
+		return answer
 
-	
-
-	# Time Complexity: O(n^2)
-
-	# Space Complexity: O(n)
-
-	 
