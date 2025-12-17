@@ -27,7 +27,7 @@ class Solution:
             chars[s[r]] += 1
             max_f = max(max_f, chars[s[r]])
 
-            if ((r - l + 1) - max_f) > k:
+            if ((r - l + 1) - max_f) > k:   
                 chars[s[l]] -= 1
                 l += 1
             max_len = max(max_len, r - l + 1)
